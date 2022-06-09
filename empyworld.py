@@ -1,13 +1,13 @@
-
 def draw_worldempty ():
     import colorama
     import colorama as init
     from colorama import Back, Style, Fore
-    colorama.init()
+    colorama.init(autoreset=True)
     world = [[j for  j in range(20)]for i in range(30)]
+    print(i for i in range(30))
     for i in range(len(world)):
-        print([Back.GREEN for j in range(len(world[i]))])
-
+        for j in range(len(world[i])):
+          print(Back.GREEN + ' ',end='')
 
 
 
