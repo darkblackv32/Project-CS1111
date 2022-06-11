@@ -1,0 +1,23 @@
+from colorama import Back, init
+init(autoreset=True)
+
+va = Back.LIGHTWHITE_EX + '    '
+
+mapa = [[va for i in range(32)]for j in range(21)]
+
+for i in range(len(mapa)):
+    if i == 0:
+        for j in range(len(mapa[i])):
+            mapa[i][j]= str(j)
+    for l in range(32):
+        if l == 0:
+            mapa[i][l] = str(i)
+    mapa[1][6] = Back.BLUE + '    '
+    mapa[1][7] = Back.GREEN + '    '
+
+for y in range(21):
+        for x in range(len(mapa[y])):
+            if x <= 30:
+                print(mapa[y][x].center(4),end='')
+            elif x == 31:
+                print()
