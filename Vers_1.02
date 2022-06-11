@@ -1,0 +1,16 @@
+from colorama import Back, Fore, Style, init
+
+init(autoreset=True)
+
+
+def draw_world_empty():
+
+    bk = [[Back.LIGHTWHITE_EX + '    ' for i in range(32)] for j in range(21)]
+    for y in range(21):
+        for x in range(len(bk[y])):
+            if x <= 30:
+                print(bk[y][x].center(4), end='')
+            elif x == 31:
+                print()
+
+draw_world_empty()
