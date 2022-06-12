@@ -203,11 +203,6 @@ if d == 'init':
         draw_worldempty()
 
 
-
- print()
- print()
-
-
  def draw_player():
 
 
@@ -217,14 +212,6 @@ if d == 'init':
     world[12][2] = Back.CYAN + '    '
     world[11][3] = Back.MAGENTA + '    '
 
-
-
-
-
-
-
- print()
- print()
 
 
  def move_player(option):
