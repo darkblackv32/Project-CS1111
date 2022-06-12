@@ -209,13 +209,7 @@ if d == 'init':
 
 
  def draw_player():
-    for i in range(len(world)):
-        if i == 0:
-            for j in range(len(world[i])):
-                world[i][j] = str(j)
-        for l in range(32):
-            if l == 0:
-                world[i][l] = str(i)
+
 
     # Avatar
     world[10][2] = Back.CYAN + '    '
