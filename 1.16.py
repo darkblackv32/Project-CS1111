@@ -194,6 +194,13 @@ def draw_player(xi, yi, xm, ym, xb, yb, xc, yc):
     world2[yb][xb] = Back.CYAN + '    '
     world2[yc][xc] = Back.CYAN + '    '
 
+def vefarbol(xi,yi):
+    global world
+    if world[yi][xi] == Back.RED + '    ':
+        return True
+    return False
+
+
 def collect(option):
     xi = 3  # indicador horizontal de jugador
     yi = 11  # indicador vertical del jugador
@@ -209,27 +216,12 @@ def collect(option):
             yi = yi - 1  # indicador horizontal de jugador
     countwood = 0
     countrock = 0
-    if world[yi][xi] == world[9][5] or world[yi][xi] == world[10][5] or world[yi][xi] == world[11][5] or world[yi][
-        xi] == world[12][5]:
-        world[yi][xi] = Back.LIGHTWHITE_EX + '    '
-        countwood += 1
-    if world[yi][xi] == world[9][5] or world[yi][xi] == world[10][5] or world[yi][xi] == world[11][5] or world[yi][
-        xi] == world[12][5]:
-        world[yi][xi] = Back.LIGHTWHITE_EX + '    '
-        countwood += 1
-    if world[yi][xi] == world[10][29] or world[yi][xi] == world[11][29] or world[yi][xi] == world[12][29]:
-        world[yi][xi] = Back.LIGHTWHITE_EX + '    '
-        countwood += 1
-    if world[yi][xi] == world[10][25] or world[yi][xi] == world[11][25] or world[yi][xi] == world[12][25]:
-        world[yi][xi] = Back.LIGHTWHITE_EX + '    '
-        countwood += 1
 
-    world[7][22] = Back.RED + '    '
-    world[8][22] = Back.RED + '    '
-    world[9][22] = Back.RED + '    '
-    world[10][22] = Back.RED + '    '
-    world[11][22] = Back.RED + '    '
-    world[12][22] = Back.RED + '    '
+    if vefarbol(xi = xi, yi = yi):
+        countwood += 1
+        world[yi][xi] = Back.LIGHTWHITE_EX + '    '
+        print(world[yi][xi])
+
     print("Wood blocks:", countwood)
     if world[yi][xi] == world[12][7] or world[yi][xi] == world[11][7] or world[yi][xi] == world[11][5] or world[yi][xi] == world[12][8] or world[yi][
         xi] == world[11][8] or world[yi][xi] == world[11][9] or world[yi][xi] == world[12][9] or world[yi][xi] == \
@@ -247,8 +239,6 @@ def move_player2():
     zx = 0
     zy = 0
 
-    draw_world()
-    draw_worldempty()
 
     while c != 'no':
 
@@ -310,7 +300,6 @@ def move_player2():
                 yb = yb - 1  # piernas
                 yc = yc - 1  # cab
                 zy = zy - 1
-        draw_world()
         if "extract" in option:
             collect(option)
 
@@ -329,9 +318,10 @@ def move_player2():
             print("Invalid operation")
 
         c = input('keep playing?')
-
-
+def main():
+    draw_world()
+    move_player2()
 d = input('$ ')
 if d == 'init':
     print('$ Welcome to minecraft world XYZ')
-    move_player2()
+    main() 
