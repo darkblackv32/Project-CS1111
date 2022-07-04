@@ -10,7 +10,6 @@ world2 = [[Back.LIGHTWHITE_EX + '    ' for i in range(42)] for j in range(21)]  
 ESPACIONEGRO = Back.BLACK + '    '  # variables que usaremos mas tarde para determinar un pixel negro, azul y verde
 PASTO = Back.GREEN + '    '
 AGUA = Back.BLUE + '    '
-SOL = Back.YELLOW + '    '
 
 
 def draw_worldempty():
@@ -38,10 +37,10 @@ def draw_world():  # seleccionamos las filas que queremos pintar y el numero de 
         for j in range(40):
             world[i][j + 1] = PASTO
 
-        # La parte de agua
-        for i in range(13, 18):
-            for j in range(25, 28):
-                world[i][j + 1] = AGUA
+    # La parte de agua
+    for i in range(13, 18):
+        for j in range(25, 28):
+            world[i][j + 1] = AGUA
 
     # 1PARTE VERDE DEL PRIMER ARBOL
     world[6][5] = Back.GREEN + '    '
@@ -135,41 +134,6 @@ def draw_world():  # seleccionamos las filas que queremos pintar y el numero de 
     world[10][25] = Back.RED + '    '
     world[11][25] = Back.RED + '    '
     world[12][25] = Back.RED + '    '
-    #
-    world[7][37] = Back.RED + '    '
-    world[8][37] = Back.RED + '    '
-    world[9][37] = Back.RED + '    '
-    world[10][37] = Back.RED + '    '
-    world[11][37] = Back.RED + '    '
-    world[12][37] = Back.RED + '    '
-    world[6][34] = Back.GREEN + '    '
-    world[6][35] = Back.GREEN + '    '
-    world[6][36] = Back.GREEN + '    '
-    world[6][37] = Back.GREEN + '    '
-    world[6][38] = Back.GREEN + '    '
-    world[6][39] = Back.GREEN + '    '
-    world[6][40] = Back.GREEN + '    '
-    world[5][35] = Back.GREEN + '    '
-    world[5][36] = Back.GREEN + '    '
-    world[5][37] = Back.GREEN + '    '
-    world[5][38] = Back.GREEN + '    '
-    world[5][39] = Back.GREEN + '    '
-    world[4][36] = Back.GREEN + '    '
-    world[4][37] = Back.GREEN + '    '
-    world[4][38] = Back.GREEN + '    '
-    world[3][37] = Back.GREEN + '    '
-
-
-    #
-    world[10][39] = Back.RED + '    '
-    world[11][39] = Back.RED + '    '
-    world[12][39] = Back.RED + '    '
-    world[9][38] = Back.GREEN + '    '
-    world[9][39] = Back.GREEN + '    '
-    world[9][40] = Back.GREEN + '    '
-    world[8][39] = Back.GREEN + '    '
-
-
 
     # 1PARTE VERDE DEL SEXTO ARBOL - ARBOL PEQUEÑO 2
     world[8][29] = Back.GREEN + '    '
@@ -197,12 +161,6 @@ def draw_world():  # seleccionamos las filas que queremos pintar y el numero de 
     world[15][23] = Back.WHITE + '    '
     world[15][25] = Back.WHITE + '    '
     world[19][29] = Back.WHITE + '    '
-    world[16][34] = Back.WHITE + '    '
-    world[12][35] = Back.WHITE + '    '
-    world[16][37] = Back.WHITE + '    '
-    world[18][37] = Back.WHITE + '    '
-    world[18][40] = Back.WHITE + '    '
-
     # piedras en parte superior
     world[12][7] = Back.WHITE + '    '
     world[11][7] = Back.WHITE + '    '
@@ -219,8 +177,6 @@ def draw_world():  # seleccionamos las filas que queremos pintar y el numero de 
     world[12][30] = Back.WHITE + '    '
 
     # Sol
-    world[2][31] = Back.LIGHTYELLOW_EX + '    '
-    world[4][31] = Back.LIGHTYELLOW_EX + '    '
     world[1][30] = Back.LIGHTYELLOW_EX + '    '
     world[2][30] = Back.LIGHTYELLOW_EX + '    '
     world[3][30] = Back.LIGHTYELLOW_EX + '    '
@@ -234,7 +190,6 @@ def draw_world():  # seleccionamos las filas que queremos pintar y el numero de 
     world[4][27] = Back.LIGHTYELLOW_EX + '    '
     world[4][29] = Back.LIGHTYELLOW_EX + '    '
 
-
 def draw_world2empty():
     for i in range(len(world2)):  # recorremos las filas de la matriz con len
         if i == 0:
@@ -246,7 +201,6 @@ def draw_world2empty():
                 world2[i][l] = str(i)  # i representa a todas las filas y l representa al primer elementos de cada
                 # fila y entonces
                 # seleccionamos a todos los primeros elementos de cada fila para convertirlos
-
 
 def draw_world2():  # seleccionamos las filas que queremos pintar y el numero de columnas que pintaremos, y cambiamos
     # los pixeles balncos según el color que corresponda
@@ -260,10 +214,10 @@ def draw_world2():  # seleccionamos las filas que queremos pintar y el numero de
         for j in range(40):
             world2[i][j + 1] = PASTO
 
-        # La parte de agua
-        for i in range(13, 18):
-            for j in range(25, 28):
-                world2[i][j + 1] = AGUA
+    # La parte de agua
+    for i in range(13, 18):
+        for j in range(25, 28):
+            world2[i][j + 1] = AGUA
 
     # 1PARTE VERDE DEL PRIMER ARBOL
     world2[6][5] = Back.GREEN + '    '
@@ -413,44 +367,35 @@ def draw_world2():  # seleccionamos las filas que queremos pintar y el numero de
     world2[4][27] = Back.LIGHTYELLOW_EX + '    '
     world2[4][29] = Back.LIGHTYELLOW_EX + '    '
 
-
 def draw_player(yi, xi):  # Mismo proceso que el anterior para dibujar al avatar
-
     # Avatar
     world[yi][xi] = Back.MAGENTA + '    '  # la mano
     world[yi][xi - 1] = Back.CYAN + '    '  # centro
     world[yi - 1][xi - 1] = Back.CYAN + '    '  # pies
     world[yi + 1][xi - 1] = Back.CYAN + '    '  # cabeza
 
-
-def fill(yi, xi):
+def fill(yi, xi):  #esta funcion compara el mundo uno con el mundo dos
     world[yi][xi] = world2[yi][xi]
     world[yi][xi - 1] = world2[yi][xi - 1]
     world[yi - 1][xi - 1] = world2[yi - 1][xi - 1]
     world[yi + 1][xi - 1] = world2[yi + 1][xi - 1]
+#si esta funcion detecta que si al comparar el mundo 1 esta de color rojo, pinta de color blanco al mundo 2
 
-
-def arbol(yi, xi):
-    global world2
-
-    if world2[yi][xi] == Back.RED + '    ':
+def arbol(yi, xi): # llamar a la variable global
+    global world2 #llamamos al segundo mundo para que el primer mundo no se dibuje y se borre el color
+    if world2[yi][xi] == Back.RED + '    ': #si detecta un color rojo lo cambia
         return True
-
     return False
 
-
-def piedra(yi, xi):
-    global world2
+def piedra(yi, xi): # usamos el mismo paso anterior, llamamos a la variable global
+    global world2 #llamamos al segundo mundo para que el primer mundo no se dibuje y se borre el color
     if world2[yi][xi] == Back.WHITE + '    ':
         return True
-
     return False
 
-
-def destroy(yi, xi):
-    world[yi][xi] = Back.LIGHTWHITE_EX + '    '
-    world2[yi][xi] = Back.LIGHTWHITE_EX + '    '
-
+def destroy(yi, xi): #funcion que usamos para destruir
+    world[yi][xi] = Back.LIGHTWHITE_EX + '    ' #pinta de negro lo que destruyamos en nuestro mundo 1
+    world2[yi][xi] = Back.LIGHTWHITE_EX + '    ' #pinta de negro lo que destruyamos en nuestro mundo 2
 
 def collect(yi, xi):
     countwood = 0  # inicia la cuenta en 0
@@ -458,7 +403,6 @@ def collect(yi, xi):
     # indicadores de la mano del jugador
     # recibe el zx y el zy para que collect se ejecute siempre en el espacio
     # de la mano del jugador sin importar el numero de comandos
-
     # Verifica que la mano del jugador se encuentra en el mismo espacio que un arbol
     if arbol(yi, xi):
         countwood += 1
@@ -467,21 +411,17 @@ def collect(yi, xi):
         countrock += 1
     # Retorna el contador de los bloques destruidos
     destroy(yi, xi)
-
     return countwood, countrock
 
-
-def build(yi, xi, elemento):
-    if world2[yi][xi] == Back.LIGHTWHITE_EX + '    ' and elemento == 'wood':
-        world[yi][xi] = Back.RED + '    '
-        world2[yi][xi] = Back.RED + '    '
+def build(yi, xi, elemento): #esta funcion sirve para construir
+    if world2[yi][xi] == Back.LIGHTWHITE_EX + '    ' and elemento == 'wood': #construir bloques de madera en ambos mundos
+        world[yi][xi] = Back.RED + '    ' #bloques de madera color rojo en el mundo
+        world2[yi][xi] = Back.RED + '    ' #bloques de madera color rojo en el mundo 2
     elif world2[yi][xi] == Back.LIGHTWHITE_EX + '    ' and elemento == 'rock':
-        world[yi][xi] = Back.RED + '    '
-        world2[yi][xi] = Back.RED + '    '
-
+        world[yi][xi] = Back.RED + '    ' #bloques de piedra color rojo en el mundo
+        world2[yi][xi] = Back.RED + '    ' #bloques de piedra color rojo en el mundo 2
     else:
-        print('Invalid operation')
-
+        print('Invalid operation') #por si la funcion no cumple con los requerimentos
 
 def move_player2(wood, rock):  # Recibe los valores en el modulo para guardar la cuenta de collect
     xi = 3
@@ -490,25 +430,19 @@ def move_player2(wood, rock):  # Recibe los valores en el modulo para guardar la
     limite = 30
     # hacemos un bucle para jugar el tiempo deseado
     while True:
-        moves = input(
-            '$ ').split(',')  # aqui recibe los comandos en una string yse convierte el string en una lista para manejarla
+        moves = input('$ ').split(',')  # aqui recibe los comandos en una string yse convierte el string en una lista para manejarla
         # aqui se cambian las coordenadas de los pixeles del cuerpo del jugador para poder moverlo despues
-
         for i in range(len(moves)):
             moves[i] = moves[i].split(' ')
-
-
-
         for i in moves:
-
-         if len(i) > 1 and i[1] == 'right':
+            if len(i) > 1 and i[1] == 'right':
                 # es necesario para que el jugador no tenga un clon
                 fill(yi, xi)
                 xi += int(i[0])
                 modificador = int(i[0])
-                if modificador >= 22:
-                  modificador -=22
-                if xi >= 22:
+                if modificador >= 18:
+                  modificador -=18
+                if xi >= 23:
                     camara += modificador
 
                     if 18 >= camara:
@@ -516,62 +450,52 @@ def move_player2(wood, rock):  # Recibe los valores en el modulo para guardar la
                         while camara >= 18:
                             camara -= 1
 
-
-         elif len(i) > 1 and i[1] == 'left':
+            elif len(i) > 1 and i[1] == 'left':
                 # es necesario para que el jugador no tenga un clon
                 fill(yi, xi)
                 xi -= int(i[0])
                 modificador= int(i[0])
-                if modificador >= 22:
-                  modificador -=22
-                if xi >= 22:
+                if modificador >= 18:
+                  modificador -=18
+                if xi <= 18:
                     camara -= modificador
                     if 18 >= camara:
 
                       while camara >= 18:
                           camara-=1
-                    if camara < 0:
-                        while camara < 0:
-                            camara += 1
 
-
-         elif len(i) > 1 and  i[1] == 'down':
+            elif len(i) > 1 and  i[1] == 'down':
                 # es necesario para que el jugador no tenga un clon
                 fill(yi, xi)
                 yi += int(i[0])
-
-         elif len(i) > 1 and i[1] == 'top':
+            elif len(i) > 1 and i[1] == 'top':
                 # es necesario para que el jugador no tenga un clon
                 fill(yi, xi)
                 yi -= int(i[0])
-
-         if "extract" in i:  # se llama a la funcion colect se si se ingreso el comando extract
-            ex = collect(yi, xi)
-            wood += ex[0]
-            rock += ex[1]  # guarda la cuenta de cada bucle
-         if "destroy" in i:  # se llama a la funcion destroy se si se ingreso el comando destroy
-            destroy(yi, xi)
-         if ['build', 'wood'] in moves and wood > 0:
-            w = 'wood'
-            build(yi, xi, w)
-            wood -= 1
-         elif ['build', 'rock'] in moves and rock > 0:
-            r = 'rock'
-            build(yi, xi, r)
-            rock -= 1
-         elif ['build', 'wood'] in moves and wood <= 0:
-            print('invalid operation')
-
-         elif ['build', 'rock'] in moves and rock <= 0:
-            print('invalid operation')
-
-
-
+            if "extract" in i:  # se llama a la funcion colect se si se ingreso el comando extract
+                ex = collect(yi, xi)
+                wood += ex[0]
+                rock += ex[1]  # guarda la cuenta de cada bucle
+            if "destroy" in i:  # se llama a la funcion destroy se si se ingreso el comando destroy
+                destroy(yi, xi)
+            if ['build', 'wood'] in moves and wood > 0:
+                w = 'wood'
+                build(yi, xi, w)
+                wood -= 1
+            elif ['build', 'rock'] in moves and rock > 0:
+                r = 'rock'
+                build(yi, xi, r)
+                rock -= 1
+            elif ['build', 'wood'] in moves and wood <= 0:
+                print('invalid operation')
+            elif ['build', 'rock'] in moves and rock <= 0:
+                print('invalid operation')
         if limite + camara > 40:
             while limite + camara > 40:
                 limite -=1
+        if camara < 0:
+            camara = 0
         if xi in range(1, 41) and yi in range(1, 21):  # se verifica que el jugador este dentro del mundo
-
             draw_player(yi, xi)
             print('$ Welcome to minecraft world XYZ')
             for y in range(21):  # de aca en adelante imprimimos la matriz
@@ -584,8 +508,6 @@ def move_player2(wood, rock):  # Recibe los valores en el modulo para guardar la
                         break
             print("Wood blocks:", wood)
             print("Stone blocks:", rock)
-
-
             limite = 30
         else:
             print("Invalid operation")  # si el jugador se sale del mundo sale operacion invalida
