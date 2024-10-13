@@ -1,14 +1,16 @@
+
+
 def draw_worldempty ():
     from colorama import Back, init
     init(autoreset=True)
 
-
+    va = Back.LIGHTWHITE_EX + '    '
 
     ESPACIONEGRO = Back.BLACK + '    '
     PASTO = Back.GREEN + '    '
     AGUA = Back.BLUE + '    '
 
-    mapa = [[Back.LIGHTWHITE_EX + '    ' for i in range(32)] for j in range(21)]
+    mapa = [[va for i in range(32)] for j in range(21)]
 
     for i in range(len(mapa)):
         if i == 0:
@@ -158,8 +160,6 @@ def draw_worldempty ():
         mapa[11][7] = Back.WHITE + '    '
         mapa[12][8] = Back.WHITE + '    '
         mapa[11][8] = Back.WHITE + '    '
-        mapa[11][9] = Back.WHITE + '    '
-        mapa[12][9] = Back.WHITE + '    '
         mapa[10][8] = Back.WHITE + '    '
         mapa[12][12] = Back.WHITE + '    '
         mapa[12][15] = Back.WHITE + '    '
@@ -167,27 +167,6 @@ def draw_worldempty ():
         mapa[11][16] = Back.WHITE + '    '
         mapa[12][20] = Back.WHITE + '    '
         mapa[12][30] = Back.WHITE + '    '
-        #Avatar
-        mapa[10][2] = Back.CYAN + '    '
-        mapa[11][2] = Back.CYAN + '    '
-        mapa[12][2] = Back.CYAN + '    '
-        mapa[11][3] = Back.MAGENTA + '    '
-
-        #Sol
-        mapa[1][30] = Back.LIGHTYELLOW_EX + '    '
-        mapa[2][30] = Back.LIGHTYELLOW_EX + '    '
-        mapa[3][30] = Back.LIGHTYELLOW_EX + '    '
-        mapa[1][29] = Back.LIGHTYELLOW_EX + '    '
-        mapa[2][29] = Back.LIGHTYELLOW_EX + '    '
-        mapa[3][29] = Back.LIGHTYELLOW_EX + '    '
-        mapa[1][28] = Back.LIGHTYELLOW_EX + '    '
-        mapa[2][28] = Back.LIGHTYELLOW_EX + '    '
-        mapa[3][28] = Back.LIGHTYELLOW_EX + '    '
-        mapa[2][27] = Back.LIGHTYELLOW_EX + '    '
-        mapa[4][27] = Back.LIGHTYELLOW_EX + '    '
-        mapa[4][29] = Back.LIGHTYELLOW_EX + '    '
-
-
 
     for y in range(21):
             for x in range(len(mapa[y])):
@@ -197,3 +176,9 @@ def draw_worldempty ():
                     print()
 
 draw_worldempty()
+
+
+#def draw_world ():
+
+
+#draw_world()

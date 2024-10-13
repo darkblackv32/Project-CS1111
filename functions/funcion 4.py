@@ -1,4 +1,4 @@
-def draw_world ():
+def move_player ():
     from colorama import Back, init
     init(autoreset=True)
 
@@ -167,6 +167,11 @@ def draw_world ():
         mapa[11][16] = Back.WHITE + '    '
         mapa[12][20] = Back.WHITE + '    '
         mapa[12][30] = Back.WHITE + '    '
+        #Avatar
+        mapa[10][2] = Back.CYAN + '    '
+        mapa[11][2] = Back.CYAN + '    '
+        mapa[12][2] = Back.CYAN + '    '
+        mapa[11][3] = Back.MAGENTA + '    '
 
         #Sol
         mapa[1][30] = Back.LIGHTYELLOW_EX + '    '
@@ -191,4 +196,4 @@ def draw_world ():
                 elif x == 31:
                     print()
 
-draw_world()
+move_player()

@@ -10,6 +10,7 @@ world2 = [[Back.LIGHTWHITE_EX + '    ' for i in range(42)] for j in range(21)]  
 ESPACIONEGRO = Back.BLACK + '    '  # variables que usaremos mas tarde para determinar un pixel negro, azul y verde
 PASTO = Back.GREEN + '    '
 AGUA = Back.BLUE + '    '
+SOL = Back.YELLOW + '    '
 
 
 def draw_worldempty():
@@ -134,6 +135,41 @@ def draw_world():  # seleccionamos las filas que queremos pintar y el numero de 
     world[10][25] = Back.RED + '    '
     world[11][25] = Back.RED + '    '
     world[12][25] = Back.RED + '    '
+    #
+    world[7][37] = Back.RED + '    '
+    world[8][37] = Back.RED + '    '
+    world[9][37] = Back.RED + '    '
+    world[10][37] = Back.RED + '    '
+    world[11][37] = Back.RED + '    '
+    world[12][37] = Back.RED + '    '
+    world[6][34] = Back.GREEN + '    '
+    world[6][35] = Back.GREEN + '    '
+    world[6][36] = Back.GREEN + '    '
+    world[6][37] = Back.GREEN + '    '
+    world[6][38] = Back.GREEN + '    '
+    world[6][39] = Back.GREEN + '    '
+    world[6][40] = Back.GREEN + '    '
+    world[5][35] = Back.GREEN + '    '
+    world[5][36] = Back.GREEN + '    '
+    world[5][37] = Back.GREEN + '    '
+    world[5][38] = Back.GREEN + '    '
+    world[5][39] = Back.GREEN + '    '
+    world[4][36] = Back.GREEN + '    '
+    world[4][37] = Back.GREEN + '    '
+    world[4][38] = Back.GREEN + '    '
+    world[3][37] = Back.GREEN + '    '
+
+
+    #
+    world[10][39] = Back.RED + '    '
+    world[11][39] = Back.RED + '    '
+    world[12][39] = Back.RED + '    '
+    world[9][38] = Back.GREEN + '    '
+    world[9][39] = Back.GREEN + '    '
+    world[9][40] = Back.GREEN + '    '
+    world[8][39] = Back.GREEN + '    '
+
+
 
     # 1PARTE VERDE DEL SEXTO ARBOL - ARBOL PEQUEÑO 2
     world[8][29] = Back.GREEN + '    '
@@ -161,6 +197,12 @@ def draw_world():  # seleccionamos las filas que queremos pintar y el numero de 
     world[15][23] = Back.WHITE + '    '
     world[15][25] = Back.WHITE + '    '
     world[19][29] = Back.WHITE + '    '
+    world[16][34] = Back.WHITE + '    '
+    world[12][35] = Back.WHITE + '    '
+    world[16][37] = Back.WHITE + '    '
+    world[18][37] = Back.WHITE + '    '
+    world[18][40] = Back.WHITE + '    '
+
     # piedras en parte superior
     world[12][7] = Back.WHITE + '    '
     world[11][7] = Back.WHITE + '    '
@@ -177,6 +219,8 @@ def draw_world():  # seleccionamos las filas que queremos pintar y el numero de 
     world[12][30] = Back.WHITE + '    '
 
     # Sol
+    world[2][31] = Back.LIGHTYELLOW_EX + '    '
+    world[4][31] = Back.LIGHTYELLOW_EX + '    '
     world[1][30] = Back.LIGHTYELLOW_EX + '    '
     world[2][30] = Back.LIGHTYELLOW_EX + '    '
     world[3][30] = Back.LIGHTYELLOW_EX + '    '
@@ -462,9 +506,9 @@ def move_player2(wood, rock):  # Recibe los valores en el modulo para guardar la
                 fill(yi, xi)
                 xi += int(i[0])
                 modificador = int(i[0])
-                if modificador >= 22:
-                  modificador -=22
-                if xi >= 22:
+                if modificador >= 18:
+                  modificador -=18
+                if xi >= 23:
                     camara += modificador
 
                     if 18 >= camara:
@@ -478,17 +522,15 @@ def move_player2(wood, rock):  # Recibe los valores en el modulo para guardar la
                 fill(yi, xi)
                 xi -= int(i[0])
                 modificador= int(i[0])
-                if modificador >= 22:
-                  modificador -=22
-                if xi >= 22:
+                if modificador >= 18:
+                  modificador -=18
+                if xi <= 18:
                     camara -= modificador
                     if 18 >= camara:
 
                       while camara >= 18:
                           camara-=1
-                    if camara < 0:
-                        while camara < 0:
-                            camara += 1
+
 
 
          elif len(i) > 1 and  i[1] == 'down':
@@ -526,6 +568,8 @@ def move_player2(wood, rock):  # Recibe los valores en el modulo para guardar la
         if limite + camara > 40:
             while limite + camara > 40:
                 limite -=1
+        if camara < 0:
+            camara = 0
         if xi in range(1, 41) and yi in range(1, 21):  # se verifica que el jugador este dentro del mundo
 
             draw_player(yi, xi)

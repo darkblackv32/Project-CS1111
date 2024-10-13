@@ -1,4 +1,4 @@
-def move_player ():
+def draw_worldempty ():
     from colorama import Back, init
     init(autoreset=True)
 
@@ -196,4 +196,4 @@ def move_player ():
                 elif x == 31:
                     print()
 
-move_player()
+draw_worldempty()
