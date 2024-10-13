@@ -1,48 +1,110 @@
-# README.md
+# Minecraft 2D XYZ
+
+## Overview
+
+Minecraft 2D XYZ is a project inspired by the popular game "Minecraft," designed to create a simple 2D world where players can explore, build, and destroy objects. This project leverages the `colorama` library to enhance the visual experience by allowing colored outputs in the console.
+We were truly impressed by the entire process of the project because, after having a clear idea, we were able to see the focus and development of each piece of code we wrote, resulting in a good outcome.
+
+## Features
+
+- **World Creation**: Generates a 30x20 world grid with various objects such as trees, rocks, water, and more.
+- **Player Movement**: Move the player character using commands (up, down, left, right).
+- **Resource Collection**: Collect wood and stone blocks from the environment.
+- **Building and Destroying**: Build with collected resources and destroy certain blocks.
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/minecraft-2d-xyz.git
+   cd minecraft-2d-xyz
+   ```
+
+2. Install the `colorama` library if not already installed:
+   ```bash
+   pip install colorama
+   ```
+
+## Usage
+
+To run the program, execute the following command in your terminal:
+```bash
+python main.py
+```
+
+### Commands
+
+- **init**: Start the game.
+- **top**: Move the player up.
+- **down**: Move the player down.
+- **left**: Move the player left.
+- **right**: Move the player right.
+- **build**: Build with collected blocks.
+- **extract**: Collect nearby resources.
+- **destroy**: Destroy specified blocks.
+
+## Functions
+
+- `draw_worldempty()`: Initializes and displays a blank world.
+- `draw_world()`: Draws the world with all its objects.
+- `draw_player()`: Draws the player avatar in the world.
+- `move_player(option)`: Moves the player based on input commands.
+- `collect_block(option)`: Collects resources from the world.
+- `destroy_blocks(option)`: Destroys specified blocks.
 
 ## Summary
 We start by importing the `colorama` library, which will be very helpful for painting our world. Following this, we create the function `draw_worldempty()` to draw the size of the world; our world will be 30x20 in size, and we paint the background white using the imported `colorama` library. Next, we create the function `draw_world()` to enable drawing each of the objects in our world, such as trees, rocks, the sun, the ground, and the river. When painting, we choose to paint matrix by matrix, which seemed easier, all thanks to the `colorama` library. After that, we create the function `draw_player()` based on the previous step, starting by drawing the world just as we did in the `draw_world()` function and adding the player. We continue the same process used to paint our world, matrix by matrix, placing the player at position (2,11) so that the selector is at (3,11). We then create the function `move_player(option)` to allow the player to move by inputting: top, down, right, or left. Finally, we create two functions, `collect_block(option)` and `destroy_blocks(option)`. The first function is used to collect wood and stone blocks, while the second function destroys the ground, grass, sun, and water.
 
-## Introduction
-Our project is inspired by the famous game “Minecraft,” a very entertaining construction and adventure video game that allows players to discover new worlds, build, and destroy objects within these worlds. We are sure you have heard of the game at some point or may have even played it. The project is called “Minecraft 2D XYZ,” which, like the original video game, focuses on the placement and destruction of blocks. The world will consist of two-dimensional square objects or blocks that represent parts of our world and its nature.
-
-We were truly impressed by the entire process of the project because, after having a clear idea, we were able to see the focus and development of each piece of code we wrote, resulting in a good outcome.
-
 ## Definitions
-1. **The `colorama` library**: The main library that enables the visualization of the program with the ability to color the spaces occupied by strings.
-2. **Global variable ‘world’**: The matrix representing the project’s scenario with which the code will work.
-3. **Global variables ‘ESPACIONEGRO’, ‘AGUA’, and ‘PASTO’**: These simply represent the values that the pixels of the rectangular objects in the world will have; they have more than one pixel and possess a single color.
-4. **The function ‘draw_worldempty()’**: Draws the white scenario of 30 x 20 with visible range and domain and formats the drawing so that each pixel within the matrix is uniformly spaced.
-5. **The function ‘draw_world()’**: Draws the world according to the project’s indications with the sun, trees, rocks, soil, and water by changing the color of each pixel.
-6. **The function ‘draw_player()’**: Similar to the previous function, it draws the world in the same way but with the player’s avatar included.
-7. **The function ‘move_player()’**: With this function, the user can move the character within the game using the commands: ‘top’, ‘left’, ‘right’, and ‘down’. If an attempt is made to move outside the boundaries, the program returns ‘Invalid operation’ instead of moving the character. After any command, the program ends.
-8. **Variable ‘option’**: A variable whose value is determined by input and is used for the `move_player` function to move the player.
-9. **Variable ‘d’**: Used to input `init` and run the program.
+1. **The `colorama` library**: The main library that enables visualization of the program with the capability to paint the spaces occupied by strings.
+2. **Global variable `world`**: The matrix that represents the project’s environment that the code will work with.
+3. **Function `draw_worldempty()`**: Draws the blank 30x20 environment with visible range and domain, formatting the drawing so that each pixel within the matrix is evenly spaced. However, only a certain number of pixels will be shown, which will increase as the player changes position.
+4. **Function `draw_world2empty()`**: Draws the complete 40x20 environment with changes modified by user actions. This function works based on the previous function.
+5. **Function `draw_world()`**: Draws the world according to project specifications, including the sun, trees, rocks, soil, and water by changing the color of each pixel.
+6. **Function `draw_player()`**: Similar to the previous function, draws the world in the same way but includes the player’s avatar.
+7. **Function `move_player()`**: This function allows the user to move the character within the game using the commands: ‘top’, ‘left’, ‘right’, and ‘down’. If an attempt is made to move outside the limits, the program returns ‘Invalid operation’ instead of moving the character. The program ends after any command.
+8. **Function `build()`**: Allows the player to build with red blocks in the world.
+9. **Variable `option`**: A variable whose value is determined by input and is used to execute the `move_player()` function and move the player.
+10. **Option “init”**: The “init” option is a command to execute the code, which activates the previously described functions and develops them whenever called.
 
 ## Program Functionality
-Upon starting the program, it imports the `Back` and `init` commands from the `colorama` library and then configures the `init` autoreset. The global variable `world` is assigned a matrix with 21 rows and 32 columns. Each individual value in the matrix is a string of 4 spaces colored white using `Back.LIGHTWHITE_EX`. Then, the global variables `ESPACIONEGRO`, `AGUA`, and `PASTO` are created with the values they will have in the rectangular objects in the world. Finally, before moving on to the rest of the code, a blank print is executed for better organization in the program's execution.
+Upon starting the program, the `Back` and `init` commands from the `colorama` library are imported, followed by configuring the autoreset of `init`. Then, the global variable `world` is assigned a matrix created with list comprehension consisting of 21 rows and 32 columns. Each individual value within the matrix is a string of 4 spaces colored white using `Back.LIGHTWHITE_EX`. Next, these are set as global variables so they influence the entire developed code. The variable “world2” helps store changes made in “world,” so if the character moves and any function is executed, this variable will retain that function with the applied modification.
 
-Next, the program requests input to start; entering `init` is required for the rest of the code to run. After that, it asks for the input of `option` for movements, but this can be omitted by pressing enter, and the program welcomes you to the world.
+From the module, the functions `draw_worldempty()`, `draw_world()`, `move_player()`, `draw_world2empty()`, and `draw_world2()` from `main.py` are imported. A `main()` function is then created where the previous functions are called within a `while True` loop. Additionally, the program prompts for input to start the program, requiring “init” to execute the rest of the code. After that, the movements of the avatar are input, but “init” will not be requested again, and the program will execute.
 
-### Defining the function `draw_worldempty()`
-In this function, all values in the first row and column of `mapa` are converted to numbers from 0 to 30 and from 0 to 20 respectively, using nested loops with a conditional for row #0 and a conditional for the first value of each row. Then, all values in the matrix are printed in an orderly format using another nested loop. As long as the value is less than or equal to 30 within the row, the value is printed with `end=''` to ensure the entire row appears on a single line; if the value equals 31, a blank print is executed as a row separator.
+### Functions `draw_worldempty()` and `draw_world2empty()`
+In this function, all values in the first row and column of ‘map’ are converted to numbers from 0 to 40 and from 0 to 20 respectively using nested loops, applying a condition for row #0 and another for the first value of each row. Afterward, all values of the matrix are printed in an ordered format using another nested loop. As long as the value is less than or equal to 40 within the row, the value is printed with ‘end = ''’ to display the entire row on a single line; if the value equals 41, an empty print is executed as a row separator.
 
-### Defining the function `draw_world()`
-We begin drawing the black space, followed by grass and water using nested loops that plot them within a specified domain and range, changing white pixels to their respective colors using the global variables created earlier: `ESPACIONEGRO`, `PASTO`, and `AGUA`, without touching the numbers or going outside the scenario boundaries. We then plot the remaining objects in the world, changing values individually with `colorama` commands, as we felt it would be simpler that way. Each object was drawn in an organized and classified manner. We repeat the same procedure for stones, the sun, and other environmental objects, completing the function.
+### Function `draw_world()`
+The black space is drawn first, followed by grass and water using nested loops that graph them within a determined domain and range, changing white pixels to their respective colors using the global variables created earlier: `ESPACIONEGRO`, `PASTO`, and `AGUA`, without touching the numbers or going outside the edges of the environment. The other world objects are then graphically represented by changing individual values with `colorama` commands. We chose to do this one by one, as it seemed simpler, but they were also drawn in an orderly and classified manner. We repeat the same procedure for stones, the sun, and other environmental objects, concluding this function.
 
-### Defining the function `draw_player()`
-We color the player's avatar within the world.
+### Function `draw_player()`
+The player avatar is colored within the world.
 
-### Defining the function `collect()`
-Initially, we set the variables `countwood` and `countrock` to zero since they will be used later to count the number of times `extract` is executed. Additionally, `xi` and `yi` indicate the player's hand position, while `zx` and `zy` are used to sum the amount of space the player moves from the start, which is essential for the conditionals below. Conditionals are placed to identify the player's hand position and check if it is on a stem or a stone. Upon identification, the location where `extract` is executed is painted white, and counting is done according to whether it’s `countwood` or `countrock`. The function returns these two values for use in `move_player`.
+### Function `fill()`
+This function compares world 1 with world 2, painting world 2 white if it detects that world 1 is red.
 
-### Defining the function `move_player()`
-Since a loop will be implemented later, necessary variables are created to store the player's position coordinates each time a loop runs. Inside the loop, the world is drawn. If the `option` (input) is different from ‘no’, a variable equal to the world is created, and the commands to execute actions or terminate the code are determined. This function receives the movement commands ‘top’, ‘left’, ‘right’, and ‘down’, moving the character one pixel in the indicated direction. While it can execute multiple commands, the parameter only receives one string; therefore, a `.split()` is used to execute them one after another. The coordinates (x, y) of the player’s parts are then defined. In the list of movement commands, the coordinate variables are modified according to the amount and type of commands entered using a `for` loop with conditionals, painting the player's initial position white before modifying the avatar’s coordinates. With `draw_world`, we repaint the areas left blank after removing the previous avatar. Here, we also execute the functions `collect` and `destroy` if their respective commands were in `option`. The amounts of collected objects are added to `wood` and `rock` depending on the position of the variable in the return of `collect()`.
+### Functions `tree`, `stone`, and `destroy()`
+World ‘world2’ is called so that the first world is not drawn, allowing the functions to persist in the world. The `tree` function identifies whether the player’s hand is in red, indicating they are on a tree trunk.
 
-Afterwards, the program changes the values in the matrix to the avatar using the function `draw_player` at the new position, with a conditional based on its coordinates, and prints it along with the count of the collected blocks. If the coordinates do not meet the conditional—i.e., if the commands entered modify the avatar’s coordinates to values outside the matrix and thus exceed the world boundaries—the previous code within the conditional does not execute, returning the string ‘invalid operation’.
+### Function `collect()`
+Initially, the variables `countwood` and `countrock` start at zero, as they will be used later to count the number of times extraction occurs. Additionally, `xi` and `yi` serve to verify that the player’s hand is in the same space as a tree or stone; if so, it returns the destroyed block counter.
 
-### Defining the function `destroy()`
-The function receives the coordinates of the player’s hand. The code checks if the player’s hand would occupy any coordinates of destructible blocks and changes it to a blank space accordingly. This process is repeated for the rest of the blocks of water, grass, and the sun present in the world.
+### Function `build()`
+This function allows players to build wood and stone blocks where necessary. It is essential to consider that the block where the construction will occur must be empty. The character must have collected blocks to perform this operation; if conditions are not met, the message “Invalid operation” will be displayed.
+
+### Function `move_player()`
+As a loop will be implemented later, the necessary variables are created to store the player’s position coordinates and the initial conditions of the camera and limit. In a `while True` loop, the world is drawn, a variable equal to the world is created, and commands are determined for actions or code termination. This function receives movement commands and can execute multiple commands, but the parameter only accepts a single string. Therefore, it uses `.split()` to execute them one after another. A loop changes the coordinates of the player’s pixels to allow for movement afterward.
+
+To ensure the avatar follows the proposed actions, a loop is implemented for movement commands ‘top’, ‘left’, ‘right’, and ‘down’ that move the character one pixel in the indicated direction according to the number of commands entered. Before modifying the avatar’s coordinates, the program paints its initial position white. Additionally, a `while` loop makes the camera move alongside the player when moving right or left. If it reaches column 40, it stops moving; the map will not move further, but the player can continue moving. This condition applies to left or right movements as well.
+
+Afterward, the `collect`, `destroy`, and `build` functions are executed if their respective commands were present in ‘option’. The quantity of collected objects is added to `wood` and `rock`, depending on the variable position in the `collect()` return. The program then changes the values within the matrix to the avatar using the `draw_player()` function in the new position with a condition on its coordinates, modifying the character’s position and the camera’s position, printing it along with the count of collected blocks in a “draw world 2.”
+
+However, if the coordinates do not meet the condition (i.e., the entered commands modify the avatar's coordinates to values outside the matrix, attempting to exceed the world’s limits), the previous code within the condition does not execute, returning the string ‘invalid operation.’
+
+### Function `destroy()`
+The function receives the coordinates of the player’s hand. The code changes the color of the block selected by the player’s hand in ‘world’ and...
+
 
 ## Examples of Execution
 For execution examples, the inputs and outputs of each will be taken into account.
@@ -81,6 +143,29 @@ For execution examples, the inputs and outputs of each will be taken into accoun
 
 ## Conclusions and Recommendations
 ### Conclusions:
-1. This code is iterative, so actions taken by the player within the world cannot be undone or changed once the code is executed unless it is run again.
-2. Teamwork, communication, and a common space where the entire team could access the program, like GitHub, were vital to the project’s development. Organization simplified the process, ensuring everyone understood the code despite the division of labor.
-3. The most challenging part of the project was implementing the `
+
+1. This code is iterative, meaning players cannot undo or change their actions in the world once the code has been executed unless they restart the program.
+2. Teamwork, communication, and a shared space like GitHub were vital in the development of this project. Organization simplified the process so that everyone understood the code, despite the division of labor.
+3. The most challenging part of the project was implementing the `draw_emptyworld` function, as it was the starting point, and we lacked a clear idea of how to begin. Once we resolved that, the rest of the process was much quicker because we had defined the path we needed to follow.
+4. We have gained a deeper understanding of the functionality, traversal, and use of matrices in practical applications, as the code mainly revolves around manipulating them.
+
+### Recommendations
+
+1. Utilize recursion to expand the range of possibilities within the project, such as enabling construction.
+2. Consider using other tools to facilitate the programming of this code, such as dictionaries for certain variables.
+3. Manage the project timeline better; we started the project late in this instance. Organizing our time effectively is advised.
+4. Store pixel values in variables to achieve a less tedious drawing of objects, resulting in cleaner code.
+
+### Errors
+
+- While we have all the functions, they are not fully implemented. In the `destroy()` function, it's possible to execute the command, but it does not paint the block white. A similar issue occurs in the `collect()` function, where extraction and counting work, but subsequent movements do not repaint the area white, losing the record. We strongly believe the problem lies in how we create a new scenario that retains the character's previous movements; the `while` loop behaves like a snapshot, erasing and recreating the character. We attempted using `Back.LIGHTWHITE`, but it seems this is not iterating correctly in the code.
+- Additionally, when entering a second movement in world 2, the world did not repaint, showing only the player. We had to review the code to ensure the world repainted correctly during the second movement through world 2.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
+
+## Acknowledgments
+
+- Inspired by the game "Minecraft."
+- Special thanks to the creators of the `colorama` library.
